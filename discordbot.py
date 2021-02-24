@@ -16,8 +16,6 @@ import discord
 import random
 import csv
 import asyncio
-# 自分のBotのアクセストークンに置き換えてください
-TOKEN = 'ODA4NjcwOTQzOTYyNDY0Mjc2.YCJ7gQ.XowI9e2ImCs_T9InniIItYIXV5w'
 
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
