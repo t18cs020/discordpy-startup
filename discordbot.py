@@ -150,5 +150,5 @@ async def on_message(message):
         o = random.randint(0,len(karame)-1)
         await message.channel.send('俺のラーメンは、' + ninniku[l] + yasai[m] + seabura[n] + karame[o] + 'だな！')
 # Botの起動とDiscordサーバーへの接続
-client.run(TOKEN)
+client.run(token)
 #808670943962464276
