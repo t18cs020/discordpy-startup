@@ -149,6 +149,12 @@ async def on_message(message):
         n = random.randint(0,len(seabura)-1)
         o = random.randint(0,len(karame)-1)
         await message.channel.send('俺のラーメンは、' + ninniku[l] + yasai[m] + seabura[n] + karame[o] + 'だな！')
+        
+    if message.content == '/apex':           
+        await message.channel.send("1人目は、ランパートでモザンビークだな！")
+        await message.channel.send("2人目は、ミラージュでLスターだな！")
+        await message.channel.send("3人目は、クリプトでP2020だな！")
+
 # Botの起動とDiscordサーバーへの接続
 client.run(token)
 #808670943962464276
