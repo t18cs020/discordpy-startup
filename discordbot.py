@@ -158,13 +158,23 @@ async def on_message(message):
         n = random.randint(0,len(seabura)-1)
         o = random.randint(0,len(karame)-1)
         await message.channel.send('俺のラーメンは、' + ninniku[l] + yasai[m] + seabura[n] + karame[o] + 'だな！')
-        
+
     if message.content == '/apex':
-        for num in range(1,4):
-            i = random.randint(0,len(apexlegends)-1)
-            j = random.randint(0,len(apexweapons)-1)
-            k = random.randint(0,len(apexweapons)-1)
-            await message.channel.send(num + "人目は、" + apexlegend[i] + "で" + apexweapons[j] + "と" + apexweapons[k] + "だな！")
+        num = 1
+        i = random.randint(0,len(apexlegends)-1)
+        j = random.randint(0,len(apexweapons)-1)
+        k = random.randint(0,len(apexweapons)-1)
+        await message.channel.send(num + "人目は、" + apexlegend[i] + "で" + apexweapons[j] + "と" + apexweapons[k] + "だな！")
+        num = 2
+        i = random.randint(0,len(apexlegends)-1)
+        j = random.randint(0,len(apexweapons)-1)
+        k = random.randint(0,len(apexweapons)-1)
+        await message.channel.send(num + "人目は、" + apexlegend[i] + "で" + apexweapons[j] + "と" + apexweapons[k] + "だな！")
+        num = 3
+        i = random.randint(0,len(apexlegends)-1)
+        j = random.randint(0,len(apexweapons)-1)
+        k = random.randint(0,len(apexweapons)-1)
+        await message.channel.send(num + "人目は、" + apexlegend[i] + "で" + apexweapons[j] + "と" + apexweapons[k] + "だな！")
 
 # Botの起動とDiscordサーバーへの接続
 client.run(token)
