@@ -45,6 +45,15 @@ ninniku = ['','ニンニク少し','ニンニク','ニンニクマシマシ']
 yasai= ['ヤサイ少なめ','','ヤサイマシ','ヤサイマシマシ']
 seabura = ['','アブラマシ','アブラマシマシ']
 karame = ['','カラメ','カラカラ']
+
+#Apex用
+with open('./apex_legends.txt', 'r', encoding='UTF-8') as f:
+    apexlegends = [s.strip() for s in f.readlines()]
+f.close()
+with open('./apex_weapons.txt', 'r', encoding='UTF-8') as f:
+    apexweapons = [s.strip() for s in f.readlines()]
+f.close()
+
 # 起動時に動作する処理
 @client.event
 async def on_ready():
@@ -150,10 +159,12 @@ async def on_message(message):
         o = random.randint(0,len(karame)-1)
         await message.channel.send('俺のラーメンは、' + ninniku[l] + yasai[m] + seabura[n] + karame[o] + 'だな！')
         
-    if message.content == '/apex':           
-        await message.channel.send("1人目は、ランパートでモザンビークだな！")
-        await message.channel.send("2人目は、ミラージュでLスターだな！")
-        await message.channel.send("3人目は、クリプトでP2020だな！")
+    if message.content == '/apex':
+        for num in range(1,4):
+            i = random.randint(0,len(apexlegends)-1)
+            j = random.randint(0,len(apexweapons)-1)
+            k = random.randint(0,len(apexweapons)-1)
+            await message.channel.send(num + "人目は、" + apexlegend[i] + "で" + apexweapons[j] + "と" + apexweapons[k] + "だな！")
 
 # Botの起動とDiscordサーバーへの接続
 client.run(token)
