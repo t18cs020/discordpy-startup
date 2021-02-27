@@ -81,11 +81,18 @@ async def on_message(message):
         await message.channel.send('おめぇのブキは、' + weapons[i] + 'だな！')
         
     if message.content == '/apex':
-        for num in range(1,4)
+        deletes = []
+        for num in range(1,4):
             i = random.randint(0,len(apexlegends)-1)
             j = random.randint(0,len(apexweapons)-1)
             k = random.randint(0,len(apexweapons)-1)
-            await message.channel.send(num + "人目は、" + apexlegend[i] + "で" + apexweapons[j] + "と" + apexweapons[k] + "だな！")
+            #リストからレジェンドを削除（被らないように）
+            legend = apexlegends.pop(i)
+            await message.channel.send(str(num) + "人目は、" + legend + "で" + apexweapons[j] + "と" + apexweapons[k] + "だな！")
+            #削除されたレジェンドのリスト
+            deletes.append(legend)
+        #終わった後にまた元のリストに戻す
+        apexlegends.extend(deletes)
         
     if message.content == '/myname':
         i = random.randint(0,len(parts))
