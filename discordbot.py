@@ -53,7 +53,10 @@ f.close()
 with open('./apex_weapons.txt', 'r', encoding='UTF-8') as f:
     apexweapons = [s.strip() for s in f.readlines()]
 f.close()
-
+#音声ファイル
+ikuokamoto = discord.FFmpegPCMAudio('./ikuokamoto.mp3')
+ikisugiokamoto = discord.FFmpegPCMAudio('./ikisugiokamoto.mp3')
+dokaben = discord.FFmpegPCMAudio('./dokaben.mp3')
 # 起動時に動作する処理
 @client.event
 async def on_ready():
@@ -123,7 +126,7 @@ async def on_message(message):
         # ボイスチャンネルに接続する
         vc = await message.author.voice.channel.connect()
         #再生する
-        vc.play(discord.FFmpegPCMAudio('./ikuokamoto.mp3'))
+        vc.play(ikuokamoto)
         #切断する
         await asyncio.sleep(2)
         await message.guild.voice_client.disconnect()
@@ -135,7 +138,7 @@ async def on_message(message):
         # ボイスチャンネルに接続する
         vc = await message.author.voice.channel.connect()
         #再生する
-        vc.play(discord.FFmpegPCMAudio('./ikisugiokamoto.mp3'))
+        vc.play(ikisugiokamoto)
         #切断する
         await asyncio.sleep(2)
         await message.guild.voice_client.disconnect()
@@ -151,7 +154,7 @@ async def on_message(message):
         await message.channel.send(file=file)
         await asyncio.sleep(1)
         #再生する
-        vc.play(discord.FFmpegPCMAudio('./dokaben.mp3'))
+        vc.play(dokaben)
         #切断する
         await asyncio.sleep(6)
         await message.guild.voice_client.disconnect()
