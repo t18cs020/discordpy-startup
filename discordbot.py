@@ -119,6 +119,10 @@ async def on_message(message):
         await message.channel.send("おめぇの名前は、" + name + "だな！")
         await message.author.edit(nick=name)
 
+    if message.content == '/showparts':
+        for i in range(len(parts)):
+            await message.channel.send(parts[i])
+        
     if message.content == 'イク岡本':
         if message.author.voice is None:
             await message.channel.send("あなたはボイスチャンネルに接続していません。")
