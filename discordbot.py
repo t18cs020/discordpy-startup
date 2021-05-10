@@ -87,11 +87,24 @@ async def on_message(message):
         deletes = []
         for num in range(1,4):
             i = random.randint(0,len(apexlegends)-1)
-            j = random.randint(0,len(apexweapons)-1)
-            k = random.randint(0,len(apexweapons)-1)
+            weapon1 = ""
+            weapon2 = ""
+            p2020 = random.random()
+            if p2020 < 0.5:
+                j = random.randint(0,len(apexweapons)-1)
+                weapon1 = apexweapons[j]
+            else:
+                weapon1 = "p2020"
+            
+            p2020 = random.random()
+            if p2020 < 0.5:
+                k = random.randint(0,len(apexweapons)-1)
+                weapon2 = apexweapons[k]
+            else:
+                weapon2 = "p2020"
             #リストからレジェンドを削除（被らないように）
             legend = apexlegends.pop(i)
-            await message.channel.send(str(num) + "人目は、" + legend + "で" + apexweapons[j] + "と" + apexweapons[k] + "だな！")
+            await message.channel.send(str(num) + "人目は、" + legend + "で" + weapon1 + "と" + weapon2 + "だな！")
             #削除されたレジェンドのリスト
             deletes.append(legend)
         #終わった後にまた元のリストに戻す
