@@ -131,7 +131,9 @@ async def on_message(message):
         i = random.randint(0,len(uma_parts))
         j = random.randint(0,len(uma_parts2)-1)
         if i == len(uma_parts):
-            await message.channel.send('おめぇの愛馬は、性器絶頂チンポギアだな！')
+            name = '性器絶頂チンポギア'
+            await message.channel.send('おめぇの名前は、性器絶頂チンポギアだな！')
+            await message.author.edit(nick=name)
         else:
             await message.channel.send('おめぇの愛馬は、' + uma_parts[i] + uma_parts2[j] + 'だな！')
     if message.content == '/changename':
