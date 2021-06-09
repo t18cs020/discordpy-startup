@@ -34,6 +34,14 @@ with open('./parts2.txt', 'r', encoding='UTF-8') as f:
     parts2 = [s.strip() for s in f.readlines()]
 f.close()
 
+#馬名読み込み
+with open('./uma1.txt', 'r', encoding='UTF-8') as f:
+    uma_parts = [s.strip() for s in f.readlines()]
+f.close()
+with open('./uma2.txt', 'r', encoding='UTF-8') as f:
+    uma_parts2 = [s.strip() for s in f.readlines()]
+f.close()
+
 voice = None
 player = None
 
@@ -118,7 +126,14 @@ async def on_message(message):
             await message.channel.send('おめぇの名前は、性器絶頂チンポギアだな！')
         else:
             await message.channel.send('おめぇの名前は、' + parts[i] + parts[j] + parts2[k] + 'だな！')
-
+            
+    if message.content == '/uma':
+        i = random.randint(0,len(uma_parts))
+        j = random.randint(0,len(uma_parts2)-1)
+        if i == len(uma_parts):
+            await message.channel.send('おめぇの愛馬は、性器絶頂チンポギアだな！')
+        else:
+            await message.channel.send('おめぇの愛馬は、' + uma_parts[i] + uma_parts2[j] + 'だな！')
     if message.content == '/changename':
         i = random.randint(0,len(parts))
         j = random.randint(0,len(parts)-1)
